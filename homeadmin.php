@@ -48,6 +48,12 @@
               <a class="nav-link js-scroll-trigger" href="#contact">contact</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#manegemantEvent">manegemant event </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#manegemantCompte">manegemant compte </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="acceuil.php">          
                 <?php 
                 session_start();
@@ -113,15 +119,83 @@
         </div>
       </div>
     </section>
+    <section id="manegemantEvent">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-8">
+              <?php 
+               $sql="select * from user where role='super' ";
+  $res=mysqli_query($bdd,$sql);
+  $nb=mysqli_num_rows($res);
+  for($i=0;$i<$nb;$i++){
+    $donnee=mysqli_fetch_assoc($res);
+    $var=$donnee['firstName'];
+    $prenom=$donnee['lastName'];
+    echo"<form method=post>";
+    echo"<table>
+      <tr><td>$var</td>
+      <td>$prenom</td>
+      
+      </tr>
+      </table></form>";
+    }
+                   ?>
+        </div>
+         <div class="col-md-4">
+            <a class="portfolio-link"  href="ajouter.php">ajouter</a>
+            <a class="portfolio-link"  href="modifier.php">modifier</a>
+            <a class="portfolio-link"  href="supprimer.php"> supprimer</a>
+        </div>
+      </div>
+    </section>
+ <section id="manegemantEvent">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-8">
+              <?php 
+               $sql="select * from user where role='super' ";
+  $res=mysqli_query($bdd,$sql);
+  $nb=mysqli_num_rows($res);
+  for($i=0;$i<$nb;$i++){
+    $donnee=mysqli_fetch_assoc($res);
+    $var=$donnee['firstName'];
+    $prenom=$donnee['lastName'];
+    echo"<form method=post>";
+    echo"<table>
+      <tr><td>$var</td>
+      <td>$prenom</td>
+      
+      </tr>
+      </table></form>";
+    }
+                   ?>
+        </div>
+         <div class="col-md-4">
+            <a class="portfolio-link"  href="ajouterorganizer.php">ajouter organizer</a>
+            <a class="portfolio-link"  href="modifierorganizer.php">modifier organizer</a>
+            <a class="portfolio-link"  href="supprimerorganizer.php"> supprimer organizer</a>
+        </div>
+      </div>
+    </section>
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">les evenemnts disponible</h2>
-          </br>
-          </br>
+            <h2 class="section-heading text-uppercase">les evenements les plus tot desponible </h2>
           </div>
         </div>
         <div class="row">
@@ -135,8 +209,18 @@
               <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Threads</h4>
-              <p class="text-muted">Illustration</p>
+              <h4>
+              <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='1'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?>
+              </h4>
+    
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -149,8 +233,21 @@
               <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Explore</h4>
-              <p class="text-muted">Graphic Design</p>
+              <h4>
+                
+              <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='2'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?>
+
+
+              </h4>
+
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -163,8 +260,17 @@
               <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Finish</h4>
-              <p class="text-muted">Identity</p>
+              <h4>        
+                    <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='3'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?></h4>
+        
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -177,8 +283,16 @@
               <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Lines</h4>
-              <p class="text-muted">Branding</p>
+              <h4>              <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='4'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?></h4>
+            
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -191,9 +305,19 @@
               <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
-            </div>
+              <h4>              <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='5'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?></h4>
+        <form action="tousEvents.php" method="POST">
+                <button name="seeMoreButton" class="btn btn-primary btn-xl text-uppercase" type="submit">See more</button>
+        </form>
+          </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
@@ -205,9 +329,18 @@
               <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
+              <h4>              <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='6'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);             
+            
+                $nomEvent=$donnee['nom'];
+               echo $nomEvent;
+                   ?></h4>
+          
             </div>
+            
           </div>
         </div>
       </div>
@@ -512,21 +645,49 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
+
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='1'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='1'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Threads</li>
-                    <li>Category: Illustration</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
+                  
               </div>
             </div>
           </div>
@@ -546,21 +707,46 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='2'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='2'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Explore</li>
-                    <li>Category: Graphic Design</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
               </div>
             </div>
           </div>
@@ -580,21 +766,46 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='3'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='3'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Finish</li>
-                    <li>Category: Identity</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
               </div>
             </div>
           </div>
@@ -614,21 +825,46 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='4'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='4'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Lines</li>
-                    <li>Category: Branding</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
               </div>
             </div>
           </div>
@@ -648,21 +884,46 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='5'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='5'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
               </div>
             </div>
           </div>
@@ -682,27 +943,53 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <?php 
+                $bdd=mysqli_connect('localhost','root','','devfest');
+                $sql="SELECT * FROM events WHERE ide='6'"; 
+                $res=mysqli_query($bdd,$sql);
+                $donnee=mysqli_fetch_assoc($res);
+
+
+                $sql2="SELECT sponsor FROM sponsors WHERE ide='6'"; 
+                $res2=mysqli_query($bdd,$sql2);
+                $nb=mysqli_num_rows($res2);
+                
+            
+                $nomEvent=$donnee['nom'];
+                $placeEvent=$donnee['place'];
+                $dateEvent=$donnee['date'];
+                $clubEvent=$donnee['club'];
+                $descriptionEvent=$donnee['description'];
+
+               echo' <div class="modal-body">
+                <h2 class="text-uppercase">'.$nomEvent.'</h2>
+                  <p class="item-intro text-muted">'.$dateEvent.'</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <p>'.$descriptionEvent.'</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
+                    <li>Place: '.$placeEvent.'</li>
+                    <li>Club: '.$clubEvent.'</li>
+                    <li><form method=post>
+                    <table>';
+                    for($i=0;$i<$nb;$i++){
+                      $donnee2=mysqli_fetch_assoc($res2);
+                       $var=$donnee2['sponsor'];
+                      echo"<td>".$var."</td>";
+    }
+                  echo ' </table></form></li>
                   </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
+                  <form action="Signin.php">
+                  <input class="btn btn-primary"  type="submit" value="Participer"></input>
+                    </form>
+                </div>';
+                   ?>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
